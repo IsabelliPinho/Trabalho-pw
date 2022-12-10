@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+   <link rel="stylesheet" href="https://flagsapi.com/">
+    <title>Conversor de moedas</title>
+  </head>
+  <body>
+  <div class="box">
+    
+    <img src="https://flagsapi.com/BE/flat/64.png"><img src="https://flagsapi.com/US/flat/64.png"><img src="https://flagsapi.com/BR/flat/64.png">
+      <p>Converter</p>
+      <select class="select" id="seleciona" >
+        <option value ="real">R$ Real</option>
+        <option value="euro">€ Euro</option>
+        <option value="dolar">USD Dólar</option>
+      </select>
+      
+      <p>para:</p>
+      <select class="select" id="moedas">
+        <option value="dolar"data-value="drop">USD Dólar</option>
+        <option value="euro">€ Euro</option>
+        <option value="real">R$ Real</option>
+      </select>
+                </div>
+      <p class="paragrafo"><b>Escolha um Valor</b></p>
+      <input id="input"  onkeypress="return GFG_Fun(this, event)" placeholder="R$0.00" type="number" />
+      <script>
+        var el_up = document.getElementById("GFG_UP");
+        var el_down = document.getElementById("GFG_DOWN");
+        el_up.innerHTML = 
+          "Type in the box to see whether the input is valid or not.";
+  
+        function isValid(el, evnt) {
+            var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+            if (charC == 46) {
+                if (el.value.indexOf('.') === -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                if (charC > 31 && (charC < 48 || charC > 57))
+                    return false;
+            }
+            return true;
+        }
+  
+        function GFG_Fun(t, evnt) {
+            var a = isValid(t, evnt);
+            if (a) {
+                el_down.innerHTML = "Typed Valid Character.";
+            } else {
+                el_down.innerHTML = "Typed Invalid Character.";
+            }
+            return a;
+        }</script>
+      <button id="botao">Converter</button>
+
+     
+      
+          <div id="container">
+          <p class="paragrafo" id="texto-moedas1">Real</p>
+          <p class="paragrafo-negrito" id="texto-real">Valor <Base></Base></p>
+        </div>
+
+        
+
+        
+          <div id="container">
+          <p class="paragrafo" id="texto-moedas">Dólar</p>
+          <p class="paragrafo-negrito" id="inputM">Valor Convertido</p>
+       </div>
+  </body>
+  <script src="script.js"></script>
+</html>
